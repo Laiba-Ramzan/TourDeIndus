@@ -5,7 +5,7 @@ import { addBooking } from "../store/TourSlice";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
-import { FaClock, FaRupeeSign } from "react-icons/fa";
+import { FaClock } from "react-icons/fa";
 
 function Packages() {
   const [packages, setPackages] = useState([]);
@@ -36,7 +36,7 @@ function Packages() {
         setPackages(docs);
         setImageUrls(urlsObj);
       } catch (error) {
-        console.error(" Error fetching packages:", error);
+        console.error("Error fetching packages:", error);
       } finally {
         setLoading(false);
       }
@@ -50,7 +50,6 @@ function Packages() {
       addBooking({
         id: pkg.$id,
         title: pkg.title,
-        price: pkg.price,
         duration: pkg.duration,
         date: new Date().toISOString(),
       })
@@ -127,14 +126,10 @@ function Packages() {
                       {pkg.description}
                     </p>
 
-                    <div className="flex justify-between items-center mt-5 text-gray-700 text-sm">
+                    <div className="flex justify-start items-center mt-5 text-gray-700 text-sm">
                       <span className="flex items-center gap-2">
                         <FaClock className="text-[#6F4E37]" />{" "}
                         {pkg.duration || "3 Days / 2 Nights"}
-                      </span>
-                      <span className="flex items-center gap-2 font-semibold">
-                        <FaRupeeSign className="text-[#6F4E37]" />{" "}
-                        {pkg.price || "N/A"}
                       </span>
                     </div>
 

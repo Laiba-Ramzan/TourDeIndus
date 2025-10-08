@@ -66,14 +66,12 @@ function Home() {
     fetchData();
   }, []);
 
- 
   if (loading)
     return (
       <div className="flex items-center justify-center min-h-screen">
         <div className="flex flex-col items-center gap-4">
           <div className="w-12 h-12 border-4 border-[#D4A373] border-t-transparent rounded-full animate-spin"></div>
-          <p className="text-lg text-[#3B2F2F] font-semibold">
-          </p>
+          <p className="text-lg text-[#3B2F2F] font-semibold">Loading...</p>
         </div>
       </div>
     );
@@ -81,7 +79,6 @@ function Home() {
   return (
     <div className="bg-[#FDFBF7]">
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-center">
-     
         {heroImages.map((img, index) => (
           <div
             key={index}
@@ -94,7 +91,6 @@ function Home() {
           />
         ))}
 
-       
         <div className="absolute inset-0 bg-black/50 z-10" />
 
         <div className="relative z-20 max-w-3xl px-6 text-white animate-fadeIn">
@@ -150,6 +146,8 @@ function Home() {
           </div>
         </section>
       </Container>
+
+      
       <Container>
         <section className="py-16">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -180,6 +178,7 @@ function Home() {
         </section>
       </Container>
 
+     
       <section className="py-16 bg-[#F9F5F1]">
         <Container>
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -200,11 +199,6 @@ function Home() {
                 <div className="p-5">
                   <h3 className="font-semibold text-lg">{r.name}</h3>
                   <small className="text-gray-500">{r.location}</small>
-                  <div className="mt-2 font-medium text-[#3B2F2F]">
-                    {r.price_per_night
-                      ? `PKR ${r.price_per_night}`
-                      : "From PKR --"}
-                  </div>
                 </div>
               </div>
             ))}
@@ -212,6 +206,7 @@ function Home() {
         </Container>
       </section>
 
+     
       <Container>
         <section className="py-16">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -234,9 +229,6 @@ function Home() {
                   <p className="text-sm text-gray-600 line-clamp-2 mb-2">
                     {p.description}
                   </p>
-                  <div className="mt-2 font-medium text-[#3B2F2F]">
-                    {p.price ? `PKR ${p.price}` : "Contact for price"}
-                  </div>
                 </div>
               </div>
             ))}

@@ -10,7 +10,6 @@ function Resorts() {
       try {
         const res = await service.getResorts();
         const docs = res?.documents || [];
-        
 
         const urlsObj = {};
         for (const r of docs) {
@@ -28,7 +27,7 @@ function Resorts() {
         setResorts(docs);
         setImageUrls(urlsObj);
       } catch (error) {
-        console.error(" Error fetching resorts:", error);
+        console.error("Error fetching resorts:", error);
       }
     };
 
@@ -83,12 +82,7 @@ function Resorts() {
                     </p>
                     {resort.location && (
                       <p className="text-xs text-gray-300 mt-1">
-                         {resort.location}
-                      </p>
-                    )}
-                    {resort.price_per_night && (
-                      <p className="mt-2 text-sm font-medium bg-[#D4A373] inline-block px-3 py-1 rounded-lg shadow">
-                        PKR {resort.price_per_night} / night
+                        {resort.location}
                       </p>
                     )}
                   </div>
