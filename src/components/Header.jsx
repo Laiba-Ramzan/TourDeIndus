@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Container from "./Container";
 import { Menu, X } from "lucide-react";
+import logo from "../assets/image.png"; 
 
 function Header() {
   const navigate = useNavigate();
@@ -23,12 +24,15 @@ function Header() {
         <Container>
           <nav className="flex justify-between items-center py-4 px-3">
             
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center space-x-2">
               <img
-                src="https://sdmntpraustraliaeast.oaiusercontent.com/files/00000000-9b88-61fa-a710-562972ceb510/raw?se=2025-10-07T14%3A52%3A53Z&sp=r&sv=2024-08-04&sr=b&scid=b1079232-09f2-5c39-99d6-c8ae04056e6a&skoid=8cb40e9f-389f-4cf6-afaa-e5bd4c7fd98c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-10-07T06%3A38%3A44Z&ske=2025-10-08T06%3A38%3A44Z&sks=b&skv=2024-08-04&sig=xUnhN78At4kzCqOdfvU1kVGHCZPRiWaxeZdX18RsiwE%3D"
+                src={logo}
                 alt="Logo"
-                className="w-12 h-12 rounded-full border border-cream"
+                className="w-12 h-12 rounded-full border border-cream hover:scale-105 transition-transform duration-300 shadow-md"
               />
+              <span className="text-xl font-bold text-[#D4A373] tracking-wide">
+                Tour de Indus
+              </span>
             </Link>
 
             <ul className="hidden md:flex items-center space-x-8 mx-auto">
@@ -70,14 +74,9 @@ function Header() {
           isOpen ? "translate-x-0" : "translate-x-full"
         } md:hidden z-50`}
       >
+        {/* === Header inside sidebar === */}
         <div className="flex justify-between items-center px-6 py-4 border-b border-[#5C4033]">
-          <Link
-            to="/"
-            className="text-[#D4A373] text-lg font-extrabold"
-            onClick={() => setIsOpen(false)}
-          >
-            Menu
-          </Link>
+          <span className="text-[#D4A373] text-lg font-extrabold">Menu</span>
           <button className="text-[#F5F5DC]" onClick={() => setIsOpen(false)}>
             <X size={26} />
           </button>
