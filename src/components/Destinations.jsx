@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import service from "../services/appwrite";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { FaPlayCircle } from "react-icons/fa";
 
 function Destinations() {
   const [destinations, setDestinations] = useState([]);
@@ -22,21 +21,14 @@ function Destinations() {
           if (d.images) {
             const imageIds = Array.isArray(d.images) ? d.images : [d.images];
             imageIds.forEach((id) => {
-              allMedia.push({
-                type: "image",
-                url: service.getFileUrl(id),
-              });
+              allMedia.push({ type: "image", url: service.getFileUrl(id) });
             });
           }
 
-          
           if (d.videos) {
             const videoIds = Array.isArray(d.videos) ? d.videos : [d.videos];
             videoIds.forEach((id) => {
-              allMedia.push({
-                type: "video",
-                url: service.getFileUrl(id),
-              });
+              allMedia.push({ type: "video", url: service.getFileUrl(id) });
             });
           }
 
@@ -53,7 +45,7 @@ function Destinations() {
         setDestinations(docs);
         setMediaUrls(urlsObj);
       } catch (error) {
-        console.error(" Error fetching destinations:", error);
+        console.error("Error fetching destinations:", error);
       } finally {
         setLoading(false);
       }
@@ -65,13 +57,13 @@ function Destinations() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-4 border-[#D4A373] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-[#F9F4EF] text-[#3B2F2F]">
       <div
         className="relative h-[50vh] w-full bg-cover bg-center"
         style={{
@@ -91,9 +83,11 @@ function Destinations() {
 
       <div className="px-6 py-12">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-gray-800">Top Destinations</h2>
-          <div className="w-24 h-1 bg-emerald-600 mx-auto mt-3 rounded"></div>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <h2 className="text-3xl font-bold text-[#3B2F2F]">
+            Top Destinations
+          </h2>
+          <div className="w-24 h-1 bg-[#D4A373] mx-auto mt-3 rounded"></div>
+          <p className="text-[#5C4A3F] mt-4 max-w-2xl mx-auto">
             Choose from our curated list of destinations across Sindh.
           </p>
         </div>
@@ -131,7 +125,9 @@ function Destinations() {
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <h2 className="text-xl font-semibold">{destination.title}</h2>
-                  <p className="text-sm text-gray-200">{destination.location}</p>
+                  <p className="text-sm text-gray-200">
+                    {destination.location}
+                  </p>
                 </div>
               </div>
             );
