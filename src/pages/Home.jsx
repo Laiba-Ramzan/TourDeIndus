@@ -78,6 +78,7 @@ function Home() {
 
   return (
     <div className="bg-[#FDFBF7]">
+      {/* HERO SECTION */}
       <section className="relative w-full h-screen overflow-hidden flex items-center justify-center text-center">
         {heroImages.map((img, index) => (
           <div
@@ -85,14 +86,11 @@ function Home() {
             className={`absolute inset-0 bg-center bg-cover transition-opacity duration-[2000ms] ease-in-out ${
               index === currentImage ? "opacity-100 z-0" : "opacity-0"
             }`}
-            style={{
-              backgroundImage: `url(${img})`,
-            }}
+            style={{ backgroundImage: `url(${img})` }}
           />
         ))}
 
         <div className="absolute inset-0 bg-black/50 z-10" />
-
         <div className="relative z-20 max-w-3xl px-6 text-white animate-fadeIn">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
             Explore Sindh with Us
@@ -103,7 +101,7 @@ function Home() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
-              onClick={() => navigate("/booking/:id")}
+              onClick={() => navigate("/booking")}
               className="bg-[#D4A373] text-white px-6 py-3 rounded-lg shadow hover:bg-[#b07c56] transition font-bold"
             >
               Book Now
@@ -118,6 +116,7 @@ function Home() {
         </div>
       </section>
 
+      {/* WHY SECTION */}
       <Container>
         <section className="py-16 flex flex-col md:flex-row items-center gap-10">
           <div className="flex-1">
@@ -126,9 +125,7 @@ function Home() {
             </h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               We bring you the most authentic experiences of Sindh – from the
-              dunes of Tharparkar to the serenity of Keenjhar Lake. Our
-              dedicated services, curated resorts, and special travel packages
-              ensure your journey is unforgettable.
+              dunes of Tharparkar to the serenity of Keenjhar Lake.
             </p>
             <button
               onClick={() => navigate("/destinations")}
@@ -147,18 +144,20 @@ function Home() {
         </section>
       </Container>
 
-      
+      {/* DESTINATIONS */}
       <Container>
         <section className="py-16">
           <h2 className="text-3xl font-bold text-center mb-12">
             Popular Destinations
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            onClick={() => navigate("/destinations")}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 cursor-pointer"
+          >
             {destinations.slice(0, 3).map((d) => (
               <div
                 key={d.$id}
-                onClick={() => navigate(`/destinations/${d.$id}`)}
-                className="cursor-pointer rounded-lg shadow-lg bg-white overflow-hidden hover:scale-[1.02] transition"
+                className="rounded-lg shadow-lg bg-white overflow-hidden hover:scale-[1.02] transition"
               >
                 <img
                   src={d.preview}
@@ -178,18 +177,20 @@ function Home() {
         </section>
       </Container>
 
-     
+      {/* RESORTS */}
       <section className="py-16 bg-[#F9F5F1]">
         <Container>
           <h2 className="text-3xl font-bold text-center mb-12">
             Luxury Resorts
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            onClick={() => navigate("/resorts")}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 cursor-pointer"
+          >
             {resorts.slice(0, 3).map((r) => (
               <div
                 key={r.$id}
-                onClick={() => navigate(`/resorts/${r.$id}`)}
-                className="cursor-pointer rounded-lg shadow-md bg-white overflow-hidden hover:shadow-lg transition"
+                className="rounded-lg shadow-md bg-white overflow-hidden hover:shadow-lg transition"
               >
                 <img
                   src={r.preview}
@@ -206,18 +207,20 @@ function Home() {
         </Container>
       </section>
 
-     
+      {/* PACKAGES */}
       <Container>
         <section className="py-16">
           <h2 className="text-3xl font-bold text-center mb-12">
             Exclusive Travel Packages
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div
+            onClick={() => navigate("/packages")}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 cursor-pointer"
+          >
             {packages.slice(0, 3).map((p) => (
               <div
                 key={p.$id}
-                onClick={() => navigate(`/packages/${p.$id}`)}
-                className="cursor-pointer rounded-lg shadow-md bg-white overflow-hidden hover:shadow-lg transition"
+                className="rounded-lg shadow-md bg-white overflow-hidden hover:shadow-lg transition"
               >
                 <img
                   src={p.preview}
@@ -236,11 +239,11 @@ function Home() {
         </section>
       </Container>
 
+      {/* FOOTER */}
       <section className="py-20 bg-[#3B2F2F] text-white text-center">
         <h2 className="text-3xl font-bold mb-4">Plan Your Next Trip Today</h2>
         <p className="text-lg mb-8">
-          Sindh Tourism Development Corporation is here to make your journey
-          memorable.
+          Sindh Tourism Development Corporation is here to make your journey memorable.
         </p>
         <button
           onClick={() => navigate("/contact")}
