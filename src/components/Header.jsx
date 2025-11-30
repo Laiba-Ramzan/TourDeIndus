@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Container from "./Container";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/image2.png"; 
+import logo from "../../public/image2.png"; 
 
 function Header() {
   const navigate = useNavigate();
